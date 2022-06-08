@@ -33,7 +33,7 @@ hs <- makeParamSet(
          makeNumericParam("prob_corte",       lower= 1/120 , upper=  1/20)     #pruebo  cortar con otras probabilidades
         )
 
-ksemilla_azar  <- 102191  #Aqui poner la propia semilla
+ksemilla_azar  <- 101489  #Aqui poner la propia semilla
 
 #------------------------------------------------------------------------------
 #graba a un archivo los componentes de lista
