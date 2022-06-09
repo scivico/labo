@@ -13,7 +13,7 @@ require("ranger")
 require("randomForest")  #solo se usa para imputar nulos
 
 #Aqui se debe poner la carpeta de la computadora local
-setwd("D:\\gdrive\\UTN2022P\\")   #Establezco el Working Directory
+setwd( "C:/Users/scivi/OneDrive/Desktop/MAESTRIA/AMDEF" )   #Establezco el Working Directory
 
 #cargo los datos donde entreno
 dtrain  <- fread("./datasets/paquete_premium_202011.csv", stringsAsFactors= TRUE)
@@ -35,7 +35,7 @@ param  <- list( "num.trees"=       300,  #cantidad de arboles
                 "max.depth"=        12   # 0 significa profundidad infinita
               )
 
-set.seed(102191) #Establezco la semilla aleatoria
+set.seed(101489) #Establezco la semilla aleatoria
 
 #para preparar la posibilidad de asignar pesos a las clases
 #la teoria de  Maite San Martin
