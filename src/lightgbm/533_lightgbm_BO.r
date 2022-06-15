@@ -144,7 +144,7 @@ EstimarGanancia_lightgbm  <- function( x )
 setwd("~/buckets/b1/")   #Establezco el Working Directory
 
 #cargo el dataset donde voy a entrenar el modelo
-dataset  <- fread("./datasets/paquete_premium_202011.csv")
+dataset  <- fread("./datasets/paquete_premium_202011.csv.gz")
 
 #creo la carpeta donde va el experimento
 # HT  representa  Hiperparameter Tuning
