@@ -42,7 +42,7 @@ kdataset       <- "./datasets/paquete_premium_ext_721_exp2.csv.gz"
 #donde entrenar
 ktrain_mes_desde    <- 201801        #mes desde donde entreno
 ktrain_mes_hasta    <- 202011        #mes hasta donde entreno, inclusive
-ktrain_meses_malos  <- c( 202006, 202007,202008,202009,202010,202011,202012 )   #meses a excluir del entrenamiento
+ktrain_meses_malos  <- c( 202006, 202007,202008,202009,202010,202011)   #meses a excluir del entrenamiento
 
 
 kexperimento   <- paste0( kprefijo, "2" )
