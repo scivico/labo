@@ -19,7 +19,7 @@ setwd("~/buckets/b1/")   #Establezco el Working Directory
 
 
 kprefijo       <- "KA741"
-ksemilla_azar  <- 101489  #Aqui poner la propia semilla
+ksemilla_azar  <- 101513  #Aqui poner la propia semilla
 kdataset       <- "./datasets/paquete_premium_ext_721_exp2.csv.gz"
 
 #donde entrenar
@@ -38,7 +38,7 @@ kmin_data_in_leaf  <- 15211
 kfeature_fraction  <- 0.973623878233935
 
 
-kexperimento   <- paste0( kprefijo, "22" )
+kexperimento   <- paste0( kprefijo, "23" )
 
 
 
