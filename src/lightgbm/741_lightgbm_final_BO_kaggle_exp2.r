@@ -31,14 +31,14 @@ kfinal_meses_malos  <- c( 202006, 202007,202008,202009,202010,202011)   #meses a
 #aqui copiar a mano lo menor de la Bayesian Optimization
 # si es de IT y le gusta automatizar todo, no proteste, ya llegara con MLOps
 kmax_bin           <-    31
-klearning_rate     <-  0.0217200907591032
-knum_iterations    <-   1228
-knum_leaves        <-  379
-kmin_data_in_leaf  <- 19323
-kfeature_fraction  <- 0.942106452099979
+klearning_rate     <-  0.0100340891666063
+knum_iterations    <-   1378
+knum_leaves        <-  482
+kmin_data_in_leaf  <- 15211
+kfeature_fraction  <- 0.973623878233935
 
 
-kexperimento   <- paste0( kprefijo, "2" )
+kexperimento   <- paste0( kprefijo, "22" )
 
 
 
