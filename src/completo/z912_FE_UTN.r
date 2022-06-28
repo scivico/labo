@@ -644,6 +644,8 @@ setorderv( dataset, PARAM$const$campos_sort )
 
 AgregarMes( dataset )  #agrego el mes del año
 
+if( length( PARAM$variablesdrift) > 0 )    DriftEliminar( dataset, PARAM$variablesdrift )
+
 if( PARAM$dummiesNA )  DummiesNA( dataset )  #esta linea debe ir ANTES de Corregir  !!
 
 if( PARAM$corregir == "ClaudioCastillo" )  CorregirClaudioCastillo( dataset )  #esta linea debe ir DESPUES de  DummiesNA
@@ -706,6 +708,7 @@ if( PARAM$acumulavars )  cols_lagueables  <- setdiff( colnames(dataset), PARAM$c
 if( PARAM$rankeador ) #agrego los rankings
 {
   if( PARAM$acumulavars )  cols_lagueables  <- setdiff( colnames(dataset), PARAM$const$campos_fijos )
+  cols_lagueables  <- intersect( colnames(dataset), cols_lagueables )
 
   setorderv( dataset, PARAM$const$campos_rsort )
   Rankeador( cols_lagueables )
