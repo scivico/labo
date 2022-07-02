@@ -14,7 +14,7 @@ experiment:
   tags: [ "choquecivilizaciones" ]
   description: "del validate/test en 202011"
 
-  requires:   [ "8102HTb" ]
+  requires:   [ "8101HTa" ]
 
 param:
   modelos_qty:  2
