@@ -767,3 +767,18 @@ exp_log  <- function( reg, arch=NA, folder="./", ext=".txt", verbose=TRUE )
 # exp_start( "8101KAa" )
 
 # exp_start( "8101ZZa", deletevm= FALSE )
+
+# -----------------------------------------------------------------------------
+# ------------- EXPERIMENTOS PROPIOS ------------------------------------------
+# -----------------------------------------------------------------------------
+
+# source( "~/labo/src/lib/exp_lib.r" )
+# exp_start( "8220FEa" )
+# exp_start( "8220TSa" )
+# exp_start( "8220HTa" )
+# exp_restart( "8220HTa" )
+# exp_start( "8220FMa" )
+# exp_start( "8220SCa" )
+# exp_start( "8220KAa" )
+
+
