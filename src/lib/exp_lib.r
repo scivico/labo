@@ -793,4 +793,6 @@ exp_log  <- function( reg, arch=NA, folder="./", ext=".txt", verbose=TRUE )
 # exp_start( "8220SCb" )
 # exp_start( "8220KAb" )
 
+# probando parameter boosting "goss"
+# exp_start( "8220HTag" )
 
