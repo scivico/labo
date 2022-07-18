@@ -778,10 +778,7 @@ exp_log  <- function( reg, arch=NA, folder="./", ext=".txt", verbose=TRUE )
 # exp_start( "8220TSa" )
 # exp_start( "8220HTa" )
 # exp_restart( "8220HTa" )
-# exp_start( "8220FMa" )
-# exp_start( "8220SCa" )
-# exp_start( "8220KAa" )
-
+# exp_start( "8220ZZa" )
 
 # RESEARCH1_EXP-8220b: lags 1,2,3, delta 1,2,3, canaritos final 0.1  solo al final
 # source( "~/labo/src/lib/exp_lib.r" )
@@ -789,9 +786,7 @@ exp_log  <- function( reg, arch=NA, folder="./", ext=".txt", verbose=TRUE )
 # exp_start( "8220TSb" )
 # exp_start( "8220HTb" )
 # exp_restart( "8220HTb" )
-# exp_start( "8220FMb" )
-# exp_start( "8220SCb" )
-# exp_start( "8220KAb" )
+# exp_start( "8220ZZb" )
 
 # RESEARCH1_EXP-8220b: lags 1,2,3, delta 1,2,3, canaritos final 0.1  solo al final
 # source( "~/labo/src/lib/exp_lib.r" )
@@ -799,9 +794,8 @@ exp_log  <- function( reg, arch=NA, folder="./", ext=".txt", verbose=TRUE )
 # exp_start( "8220TSc" )
 # exp_start( "8220HTc" )
 # exp_restart( "8220HTc" )
-# exp_start( "8220FMb" )
-# exp_start( "8220SCb" )
-# exp_start( "8220KAb" )
+# exp_start( "8220ZZc" )
+
 
 # probando parameter boosting "goss"
 # exp_start( "8220HTag" )
@@ -823,3 +817,5 @@ exp_log  <- function( reg, arch=NA, folder="./", ext=".txt", verbose=TRUE )
 # exp_start( "8221TSc", deletevm= FALSE  )
 # exp_start( "8221HTc" )
 # exp_restart( "8221HTc" )
+
+
