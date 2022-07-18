@@ -10,11 +10,11 @@ experiment:
   name: "exp"
   type: "TrainingStrategy"
   tags: [ "austero" ]
-  requires: [ "8120FEa" ]
+  requires: [ "8220FEa" ]
 
 
 param:
-  semilla: 102191
+  semilla: 101489
 
   #donde aplico el modelo final, los datos sin clase
   future:
