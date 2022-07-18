@@ -811,3 +811,9 @@ exp_log  <- function( reg, arch=NA, folder="./", ext=".txt", verbose=TRUE )
 # exp_start( "8221TSa" )
 # exp_start( "8221HTa" )
 # exp_restart( "8221HTa" )
+
+# RESEARCH2_EXP-8221b -- utilizar lag 1. Tendencias 3,6. Delta 1. Canaritos final 0.1
+# exp_start( "8221FEb", deletevm= FALSE  )
+# exp_start( "8221TSb", deletevm= FALSE  )
+# exp_start( "8221HTb" )
+# exp_restart( "8221HTb" )
