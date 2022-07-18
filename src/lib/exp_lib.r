@@ -806,3 +806,8 @@ exp_log  <- function( reg, arch=NA, folder="./", ext=".txt", verbose=TRUE )
 # probando parameter boosting "goss"
 # exp_start( "8220HTag" )
 
+# RESEARCH2_EXP-8221FEa -- utilizar lag 1. Tendencias 3. Delta 1. Canaritos final 0.1
+# exp_start( "8221FEa" )
+# exp_start( "8221TSa" )
+# exp_start( "8221HTa" )
+# exp_restart( "8221HTa" )
