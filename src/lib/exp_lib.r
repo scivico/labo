@@ -818,4 +818,7 @@ exp_log  <- function( reg, arch=NA, folder="./", ext=".txt", verbose=TRUE )
 # exp_start( "8221HTc" )
 # exp_restart( "8221HTc" )
 
-
+# Corriendo los ZZ del experimento 8221
+# exp_start( "8221ZZa" )
+# exp_start( "8221ZZb" )
+# exp_start( "8221ZZc" )
