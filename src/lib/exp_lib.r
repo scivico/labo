@@ -793,6 +793,16 @@ exp_log  <- function( reg, arch=NA, folder="./", ext=".txt", verbose=TRUE )
 # exp_start( "8220SCb" )
 # exp_start( "8220KAb" )
 
+# RESEARCH1_EXP-8220b: lags 1,2,3, delta 1,2,3, canaritos final 0.1  solo al final
+# source( "~/labo/src/lib/exp_lib.r" )
+# exp_start( "8220FEc" )
+# exp_start( "8220TSc" )
+# exp_start( "8220HTc" )
+# exp_restart( "8220HTc" )
+# exp_start( "8220FMb" )
+# exp_start( "8220SCb" )
+# exp_start( "8220KAb" )
+
 # probando parameter boosting "goss"
 # exp_start( "8220HTag" )
 
