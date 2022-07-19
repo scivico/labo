@@ -21,11 +21,11 @@ param:
   dummiesNA: FALSE  #si la variable tiene nulos, agrega una variable dummy que indica +[0,1] si es nulo o no
 
   corregir: "AsignarNA"     #  Repara las variables rotas { "NO", "ClaudioCastillo", "AsignarNA" }
-  variablesdrift: ["internet", "tmobile_app"] #Variables a aeliminar
+  variablesdrift: [ ] #Variables a aeliminar
   
-  variablesmanuales: FALSE   #SE AGREGAN VARIABLES MANUALES
+  variablesmanuales: TRUE   #SE AGREGAN VARIABLES MANUALES
 
-  acumulavars: FALSE   #a lo nuevo lo va aplicando
+  acumulavars: TRUE   #a lo nuevo lo va aplicando
   
   #crea variables {0,1}  con las hojas de un random forest, ATENCION que explota !!
   randomforest:    
