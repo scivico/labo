@@ -57,7 +57,7 @@ param:
 
   tony:  FALSE
 
-  rankeador: TRUE
+  rankeador: FALSE
 
   canaritos_final: 0.2   #si es CERO entonces no hace el filtrado final por canaritos
 
