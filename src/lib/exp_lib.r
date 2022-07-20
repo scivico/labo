@@ -862,3 +862,11 @@ exp_log  <- function( reg, arch=NA, folder="./", ext=".txt", verbose=TRUE )
 # exp_start( "8223TSc", deletevm= FALSE  )
 # exp_start( "8223HTc", deletevm= FALSE  )
 # exp_start( "8223ZZc" )
+
+#=========================================
+
+# RESEARCH_EXP-8224a
+# exp_start( "8224FEa", deletevm= FALSE  )
+# exp_start( "8224TSa", deletevm= FALSE  )
+# exp_start( "8224HTa", deletevm= FALSE  )
+# exp_start( "8224ZZa" )
