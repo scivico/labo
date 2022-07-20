@@ -25,33 +25,33 @@ param:
   
   variablesmanuales: TRUE   #SE AGREGAN VARIABLES MANUALES
 
-  acumulavars: TRUE   #a lo nuevo lo va aplicando
+  acumulavars: FALSE   #a lo nuevo lo va aplicando
   
   #crea variables {0,1}  con las hojas de un random forest, ATENCION que explota !!
   randomforest:    
     correr:        TRUE
     num.trees:        50
-    max.depth:        8
+    max.depth:        6
     min.node.size:   500
-    mtry:             13
+    mtry:             15
 
   #lags y sus deltas
   lags: 
-    correr:    [  TRUE,  TRUE, FALSE, FALSE, FALSE, FALSE ]  #si se corre el lag
+    correr:    [  TRUE,  FALSE, FALSE, FALSE, FALSE, FALSE ]  #si se corre el lag
     lag:       [     1,      2,     3,     4,     5,     6 ]  #orden del lag
-    delta:     [  TRUE,  TRUE, FALSE, FALSE, FALSE, FALSE ]  #solo se activa si correr=TRUE 
+    delta:     [  TRUE,  FALSE, FALSE, FALSE, FALSE, FALSE ]  #solo se activa si correr=TRUE 
     canaritos: [   0.0,    0.0,   0.0,   0.0,   0.0,   0.0 ]  #porcentaje de canaritos asesinos, del total de columnas del dataset, 0 indica NO reducir campos por canaritos
 
 
   tendenciaYmuchomas:
-    correr:    [  TRUE, TRUE, FALSE, FALSE ]   #tendencias a correr, es lo que controla y se impone al resto
+    correr:    [  FALSE, TRUE, FALSE, FALSE ]   #tendencias a correr, es lo que controla y se impone al resto
     ventana:   [     6,     3,    9,     12 ]   #tamaño de la ventana, solo se corren las que dicen  correr=TRUE
-    tendencia: [  TRUE,  TRUE,  FALSE,  FALSE ]   #pendiente de la recta ajustada por cuadrados minimos
-    minimo:    [ TRUE,  TRUE, FALSE, FALSE ]   #minimo de la ventana
-    maximo:    [ TRUE, TRUE, FALSE, FALSE ]   #maximo de la ventana
-    promedio:  [  TRUE, TRUE,  FALSE, FALSE ]   #promedio de la ventana
-    ratioavg:  [ TRUE, TRUE, FALSE, FALSE ]   #valor sobre el promedio de la ventana
-    ratiomax:  [ TRUE, TRUE, FALSE, FALSE ]   #valor sobre el maximo de la ventana
+    tendencia: [  FALSE,  TRUE,  FALSE,  FALSE ]   #pendiente de la recta ajustada por cuadrados minimos
+    minimo:    [ FALSE,  TRUE, FALSE, FALSE ]   #minimo de la ventana
+    maximo:    [ FALSE, TRUE, FALSE, FALSE ]   #maximo de la ventana
+    promedio:  [  FALSE, TRUE,  FALSE, FALSE ]   #promedio de la ventana
+    ratioavg:  [ FALSE, TRUE, FALSE, FALSE ]   #valor sobre el promedio de la ventana
+    ratiomax:  [ FALSE, TRUE, FALSE, FALSE ]   #valor sobre el maximo de la ventana
     canaritos: [   0.0,   0.0,   0.0,   0.0 ]   #porcentaje de canaritos asesinos, del total de columnas del dataset, 0 indica NO reducir campos por canaritos
 
 
