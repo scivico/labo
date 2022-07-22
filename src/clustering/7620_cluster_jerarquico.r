@@ -20,7 +20,7 @@ require("ranger")
 setwd( "~/buckets/b1/" )  #cambiar por la carpeta local
 
 #leo el dataset
-dataset  <- fread( "./exp/8221FEb/paquete_premium.csv.gz", stringsAsFactors= TRUE)
+dataset  <- fread( "./exp/8221FEb/paquete_premium_ext.csv.gz", stringsAsFactors= TRUE)
 
 #me quedo SOLO con los BAJA+2
 dataset  <- dataset[  clase_ternaria =="BAJA+2"  & foto_mes>=202001  & foto_mes<=202011, ]
@@ -29,6 +29,28 @@ gc()
 #quito los nulos para que se pueda ejecutar randomForest,  Dios que algoritmo prehistorico ...
 dataset  <- na.roughfix( dataset )
 
+
+#valvula de seguridad para evitar valores infinitos
+#paso los infinitos a NULOS
+infinitos <- lapply(names(dataset),function(.name) dataset[ , sum(is.infinite(get(.name)))])
+infinitos_qty <- sum( unlist( infinitos) )
+if( infinitos_qty > 0 )
+{
+  cat( "ATENCION, hay", infinitos_qty, "valores infinitos en tu dataset. Seran pasados a NA\n" )
+  dataset[mapply(is.infinite, dataset)] <<- NA
+}
+
+#valvula de seguridad para evitar valores NaN que es 0/0
+#paso los NaN a 0 , decision polemica si las hay
+#se invita a asignar un valor razonable segun la semantica del campo creado
+nans <- lapply(names(dataset),function(.name) dataset[ , sum(is.nan(get(.name)))])
+nans_qty <- sum( unlist( nans) )
+if( nans_qty > 0 )
+{
+  cat( "ATENCION, hay", nans_qty, "valores NaN 0/0 en tu dataset. Seran pasados arbitrariamente a 0\n" )
+  cat( "Si no te gusta la decision, modifica a gusto el programa!\n\n")
+  dataset[mapply(is.nan, dataset)] <<- 0
+}
 
 #los campos que arbitrariamente decido considerar para el clustering
 #por supuesto, se pueden cambiar
@@ -97,10 +119,10 @@ while(  h>0  &  !( distintos >=6 & distintos <=8 ) )
 {
   h <- h - 1 
   rf.cluster  <- cutree( hclust.rf, h)
-
+  
   dataset[  , cluster2 := NULL ]
   dataset[  , cluster2 := rf.cluster ]
-
+  
   distintos  <- nrow( dataset[  , .N,  cluster2 ] )
   cat( distintos, " " )
 }
@@ -121,9 +143,9 @@ fwrite( dataset,
 #  y ver cuales son las que mas diferencian a los clusters
 #esta parte conviene hacerla desde la PC local, sobre  cluster_de_bajas.txt
 
-dataset[  , mean(ctrx_quarter),  cluster2 ]  #media de la variable  ctrx_quarter
-dataset[  , mean(mtarjeta_visa_consumo),  cluster2 ]
-dataset[  , mean(mcuentas_saldo),  cluster2 ]
-dataset[  , mean(chomebanking_trx),  cluster2 ]
-dataset[  , mean(cliente_edad),  cluster2 ]
-dataset[  , mean(cliente_antiguedad),  cluster2 ]
+# dataset[  , mean(ctrx_quarter),  cluster2 ]  #media de la variable  ctrx_quarter
+# dataset[  , mean(mtarjeta_visa_consumo),  cluster2 ]
+# dataset[  , mean(mcuentas_saldo),  cluster2 ]
+# dataset[  , mean(chomebanking_trx),  cluster2 ]
+# dataset[  , mean(cliente_edad),  cluster2 ]
+# dataset[  , mean(cliente_antiguedad),  cluster2 ]
