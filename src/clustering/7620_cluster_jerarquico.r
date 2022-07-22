@@ -26,18 +26,14 @@ dataset  <- fread( "./exp/8221FEb/paquete_premium_ext.csv.gz", stringsAsFactors=
 dataset  <- dataset[  clase_ternaria =="BAJA+2"  & foto_mes>=202001  & foto_mes<=202011, ]
 gc()
 
-#quito los nulos para que se pueda ejecutar randomForest,  Dios que algoritmo prehistorico ...
-dataset  <- na.roughfix( dataset )
-
-
-#valvula de seguridad para evitar valores infinitos
+#Agregado para los HEROES
 #paso los infinitos a NULOS
 infinitos <- lapply(names(dataset),function(.name) dataset[ , sum(is.infinite(get(.name)))])
 infinitos_qty <- sum( unlist( infinitos) )
 if( infinitos_qty > 0 )
 {
   cat( "ATENCION, hay", infinitos_qty, "valores infinitos en tu dataset. Seran pasados a NA\n" )
-  dataset[mapply(is.infinite, dataset)] <<- NA
+  dataset[mapply(is.infinite, dataset)] <- NA
 }
 
 #valvula de seguridad para evitar valores NaN que es 0/0
@@ -49,8 +45,11 @@ if( nans_qty > 0 )
 {
   cat( "ATENCION, hay", nans_qty, "valores NaN 0/0 en tu dataset. Seran pasados arbitrariamente a 0\n" )
   cat( "Si no te gusta la decision, modifica a gusto el programa!\n\n")
-  dataset[mapply(is.nan, dataset)] <<- 0
+  dataset[mapply(is.nan, dataset)] <- 0
 }
+
+#quito los nulos para que se pueda ejecutar randomForest,  Dios que algoritmo prehistorico ...
+dataset  <- na.roughfix( dataset )
 
 #los campos que arbitrariamente decido considerar para el clustering
 #por supuesto, se pueden cambiar
@@ -87,8 +86,42 @@ campos_buenos  <- c( "ctrx_quarter","mcaja_ahorro","mtarjeta_visa_consumo","mdes
                      "ccallcenter_trx","mrentabilidad_max6","numero_de_cliente","mcaja_ahorro_min6","Master_fultimo_cierre_tend6","mcomisiones_min3",
                      "ccomisiones_otras_ratioavg6","ccomisiones_mantenimiento")
 
+dataset = dataset[ , campos_buenos, with=FALSE ]
+
+
+#valvula de seguridad para evitar valores infinitos
+#paso los infinitos a NULOS
+limpiarInfinitos<-function(dataset)
+  {
+infinitos <- lapply(names(dataset),function(.name) dataset[ , sum(is.infinite(get(.name)))])
+infinitos_qty <- sum( unlist( infinitos) )
+infinitos_qty
+if( infinitos_qty > 0 )
+{
+  cat( "ATENCION, hay", infinitos_qty, "valores infinitos en tu dataset. Seran pasados a NA\n" )
+  dataset[mapply(is.infinite, dataset)] <<- NA
+}
+}
+  
+limpiarInfinitos(dataset)  
+  
+#valvula de seguridad para evitar valores NaN que es 0/0
+#paso los NaN a 0 , decision polemica si las hay
+#se invita a asignar un valor razonable segun la semantica del campo creado
+limpiarNans<-function(dataset){
+nans <- lapply(names(dataset),function(.name) dataset[ , sum(is.nan(get(.name)))])
+nans_qty <- sum( unlist( nans) )
+if( nans_qty > 0 )
+{
+  cat( "ATENCION, hay", nans_qty, "valores NaN 0/0 en tu dataset. Seran pasados arbitrariamente a 0\n" )
+  cat( "Si no te gusta la decision, modifica a gusto el programa!\n\n")
+  dataset[mapply(is.nan, dataset)] <<- 0
+}
+}
+limpiarNans(dataset)
+
 #Ahora, a esperar mucho con este algoritmo del pasado que NO correr en paralelo, patetico
-modelo  <- randomForest( x= dataset[  , campos_buenos, with=FALSE ], 
+modelo  <- randomForest( x= dataset, 
                          y= NULL, 
                          ntree= 1000, #se puede aumentar a 10000
                          proximity= TRUE, 
