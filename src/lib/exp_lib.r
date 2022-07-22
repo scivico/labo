@@ -893,6 +893,12 @@ exp_log  <- function( reg, arch=NA, folder="./", ext=".txt", verbose=TRUE )
 
 #=========================================
 
+# RESEARCH_EXP-8226a
+# exp_start( "8226HTa", deletevm= FALSE  )
+# exp_start( "8226ZZa" )
+
+#=========================================
+
 # Hibridación - 8220HB
 # exp_start( "8220HBa")
 # exp_start( "8220HBb")
