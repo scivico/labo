@@ -916,3 +916,5 @@ exp_log  <- function( reg, arch=NA, folder="./", ext=".txt", verbose=TRUE )
 # Hibridación - 8220HB
 # exp_start( "8220HBa")
 # exp_start( "8220HBb")
+# exp_start( "8220HBc")
+# exp_start( "8220HBd")
